@@ -1,0 +1,112 @@
+{% extends 'template/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Detalles {{ block.super }}
+{% endblock  %}
+
+
+{% block body %}
+<div class="container mx-auto" >
+    <div class="row my-auto mx-auto">
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-4 my-2">
+            <p class="card-text mayuscula"><strong>edad:</strong    rong> {{ obj.edad }} </p>
+            <p class="card-text mayuscula"><strong>peso:</strong> {{ obj.peso }} </p>
+            <p class="card-text mayuscula"><strong>talla:</strong> {{ obj.talla }} </p>
+            <p class="card-text mayuscula"><strong>imc:</strong> {{ obj.imc }} </p>
+            <p class="card-text mayuscula"><strong>sexo:</strong> {{ obj.get_sexo_display }} </p>
+            <p class="card-text mayuscula"><strong>color piel:</strong> {{ obj.get_color_piel_display }} </p>
+            <p class="card-text mayuscula"><strong>asa:</strong> {{ obj.asa }} </p>
+            <p class="card-text mayuscula"><strong>betabloqueadores:</strong> {{ obj.betabloqueadores }} </p>
+            <p class="card-text mayuscula"><strong>clopidogrel:</strong> {{ obj.get_clopidogrel_display }} </p>
+            <p class="card-text mayuscula"><strong>heparina:</strong> {{ obj.get_heparina_display }} </p>
+            <p class="card-text mayuscula"><strong>estatinas:</strong> {{ obj.get_estatinas_display }} </p>
+            <p class="card-text mayuscula"><strong>estreptoquinasa recombinante:</strong> {{ obj.get_estreptoquinasa_recombinante_display }} </p>
+            <p class="card-text mayuscula"><strong>tiempo puerta aguja:</strong> {{ obj.tiempo_puerta_aguja }} </p>
+      </div>  
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-4 my-2">
+            <p class="card-text mayuscula"><strong>reperfusion:</strong> {{ obj.get_reperfusion_display }} </p>
+            <p class="card-text mayuscula"><strong>coronariografia:</strong> {{ obj.get_coronariografia_display }} </p>
+            <p class="card-text mayuscula"><strong>tiempo isquemia:</strong> {{ obj.tiempo_isquemia }} </p>
+            <p class="card-text mayuscula"><strong>escala grace:</strong> {{ obj.escala_grace }} </p>
+            <p class="card-text mayuscula"><strong>furosemida:</strong> {{ obj.get_furosemida_display }} </p>
+            <p class="card-text mayuscula"><strong>nitratos:</strong> {{ obj.get_nitratos_display }} </p>
+            <p class="card-text mayuscula"><strong>anticoagulantes:</strong> {{ obj.get_anticoagulantes_display }} </p>
+            <p class="card-text mayuscula"><strong>anticalcicos:</strong> {{ obj.get_anticalcicos_display }} </p>
+            <p class="card-text mayuscula"><strong>ieca:</strong> {{ obj.get_ieca_display }} </p>
+            <p class="card-text mayuscula"><strong>otros diureticos:</strong> {{ obj.get_otros_diureticos_display }} </p>
+            <p class="card-text mayuscula"><strong>lugar trombolisis:</strong> {{ obj.get_lugar_trombolisis_display }} </p>
+            <p class="card-text mayuscula"><strong>avc:</strong> {{ obj.get_avc_display }} </p>
+            <p class="card-text mayuscula"><strong>mpt:</strong> {{ obj.get_mpt_display }} </p>
+        </div>  
+        <div class=" col-12 col-sm-6 col-md-4 col-lg-4 my-2">
+            <p class="card-text mayuscula"><strong>vam:</strong> {{ obj.get_vam_display }} </p>
+            <p class="card-text mayuscula"><strong>mpp:</strong> {{ obj.get_mpp_display }} </p>
+            <p class="card-text mayuscula"><strong>aminas:</strong> {{ obj.get_aminas_display }} </p>
+            <p class="card-text mayuscula"><strong>balon:</strong> {{ obj.get_balon_display }} </p>
+            <p class="card-text mayuscula"><strong>atencion inicial:</strong> {{ obj.get_atencion_inicial_display }} </p>
+            <p class="card-text mayuscula"><strong>horario llegada:</strong> {{ obj.get_horario_llegada_display }} </p>
+            <p class="card-text mayuscula"><strong>ecg previo:</strong> {{ obj.get_ecg_previo_display }} </p>
+            <p class="card-text mayuscula"><strong>scacest:</strong> {{ obj.get_scacest_display }} </p>
+            <p class="card-text mayuscula"><strong>depresion st:</strong> {{ obj.get_depresion_st_display }} </p>
+            <p class="card-text mayuscula"><strong>depresion ondat:</strong> {{ obj.get_depresion_ondat_display }} </p>
+            <p class="card-text mayuscula"><strong>presion arterial sistolica:</strong> {{ obj.presion_arterial_sistolica }} </p>
+            <p class="card-text mayuscula"><strong>presion arterial diastolica:</strong> {{ obj.presion_arterial_diastolica }} </p>
+            <p class="card-text mayuscula"><strong>indice mkillip:</strong> {{ obj.get_indice_mkillip_display }} </p>
+        </div>  
+        <div class=" col-12 col-sm-6 col-md-4 col-lg-4 my-2">
+            <p class="card-text mayuscula"><strong>indice killip:</strong> {{ obj.get_indice_killip_display }} </p>
+            <p class="card-text mayuscula"><strong>frecuencia cardiaca:</strong> {{ obj.frecuencia_cardiaca }} </p>
+            <p class="card-text mayuscula"><strong>diabetes mellitus:</strong> {{ obj.get_diabetes_mellitus_display }} </p>
+            <p class="card-text mayuscula"><strong>insuficiencia cardiaca congestiva:</strong> {{ obj.get_insuficiencia_cardiaca_congestiva_display }} </p>
+            <p class="card-text mayuscula"><strong>hipertension arterial:</strong> {{ obj.get_hipertension_arterial_display }} </p>
+            <p class="card-text mayuscula"><strong>hiperlipoproteinemia:</strong> {{ obj.get_hiperlipoproteinemia_display }} </p>
+            <p class="card-text mayuscula"><strong>enfermedad arterias coronarias:</strong> {{ obj.get_enfermedad_arterias_coronarias_display }} </p>
+            <p class="card-text mayuscula"><strong>infarto miocardio agudo:</strong> {{ obj.get_infarto_miocardio_agudo_display }} </p>
+            <p class="card-text mayuscula"><strong>fibrilacion auricular:</strong> {{ obj.get_fibrilacion_auricular_display }} </p>
+            <p class="card-text mayuscula"><strong>intervencion coronaria percutanea:</strong> {{ obj.get_intervencion_coronaria_percutanea_display }} </p>
+            <p class="card-text mayuscula"><strong>cabg:</strong> {{ obj.get_cabg_display }} </p>
+            <p class="card-text mayuscula"><strong>tabaquismo:</strong> {{ obj.get_tabaquismo_display }} </p>
+            <p class="card-text mayuscula"><strong>enfermedad venosa periferica:</strong> {{ obj.get_enfermedad_venosa_periferica_display }} </p>
+        </div>  
+        <div class=" col-12 col-sm-6 col-md-4 col-lg-4 my-2">
+            <p class="card-text mayuscula"><strong>insuficiencia renal cronica:</strong> {{ obj.get_insuficiencia_renal_cronica_display }} </p>
+            <p class="card-text mayuscula"><strong>dialisis:</strong> {{ obj.get_dialisis_display }} </p>
+            <p class="card-text mayuscula"><strong>enfermedad cerebro vascular:</strong> {{ obj.get_enfermedad_cerebro_vascular_display }} </p>
+            <p class="card-text mayuscula"><strong>angina24h:</strong> {{ obj.get_angina24h_display }} </p>
+            <p class="card-text mayuscula"><strong>anemia:</strong> {{ obj.get_anemia_display }} </p>
+            <p class="card-text mayuscula"><strong>epoc:</strong> {{ obj.get_epoc_display }} </p>
+            <p class="card-text mayuscula"><strong>FEVI:</strong> {{ obj.get_FEVI_display }} </p>
+            <p class="card-text mayuscula"><strong>SHOCK:</strong> {{ obj.get_SHOCK_display }} </p>
+            <p class="card-text mayuscula"><strong>FIB AURIC:</strong> {{ obj.get_FIB_AURIC_display }} </p>
+            <p class="card-text mayuscula"><strong>TV/FV/PCR:</strong> {{ obj.get_TV_FV_PCR_display }} </p>
+            <p class="card-text mayuscula"><strong>Isquemia:</strong> {{ obj.get_Isquemia_display }} </p>
+            <p class="card-text mayuscula"><strong>ICC:</strong> {{ obj.get_ICC_display }} </p>
+            <p class="card-text mayuscula"><strong>Arritmia:</strong> {{ obj.get_Arritmia_display }} </p>
+        </div>  
+        <div class=" col-12 col-sm-6 col-md-4 col-lg-4 my-2">
+            <p class="card-text mayuscula"><strong>colesterol:</strong> {{ obj.colesterol }} </p>
+            <p class="card-text mayuscula"><strong>creatinina:</strong> {{ obj.creatinina }} </p>
+            <p class="card-text mayuscula"><strong>filtrado glomerular:</strong> {{ obj.filtrado_glomerular }} </p>
+            <p class="card-text mayuscula"><strong>trigliceridos:</strong> {{ obj.trigliceridos }} </p>
+            <p class="card-text mayuscula"><strong>glicemia:</strong> {{ obj.glicemia }} </p>
+            <p class="card-text mayuscula"><strong>ada:</strong> {{ obj.get_ada_display }} </p>
+            <p class="card-text mayuscula"><strong>fraccion eyeccion:</strong> {{ obj.fraccion_eyeccion }} </p>
+            <p class="card-text mayuscula"><strong>leuco:</strong> {{ obj.leuco }} </p>
+            <p class="card-text mayuscula"><strong>hb:</strong> {{ obj.hb }} </p>
+            <p class="card-text mayuscula"><strong>ck:</strong> {{ obj.ck }} </p>
+            <p class="card-text mayuscula"><strong>ckmb:</strong> {{ obj.ckmb }} </p>
+            <p class="card-text mayuscula"><strong>primera asistencia medica:</strong> {{ obj.primera_asistencia_medica }} </p>
+            <p class="card-text mayuscula"><strong>prediccion:</strong> {{ obj.get_prediccion_display }} </p>
+            <p class="card-text mayuscula"><strong>estado vital:</strong> {{ obj.get_estado_vital_display }} </p>
+      </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+

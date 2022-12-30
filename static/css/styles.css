@@ -1,0 +1,14 @@
+.navbar {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+
+.mayuscula {
+    text-transform: uppercase;
+}
+
+.edit-area {
+    min-height: 57vh;
+}

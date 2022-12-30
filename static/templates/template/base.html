@@ -1,0 +1,111 @@
+{%load  static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'vendor/font-awesome/css/all.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    
+    <title>
+        {% block title %} 
+            | Predicción de Infarto
+        {% endblock %} 
+    </title>
+    
+    <link href="{% static 'css/all.css' %}" rel="stylesheet"/>
+    
+</head>
+<body>
+  
+
+  <!--Header-->   
+    
+    <header>      
+    </header>   
+      
+  <!--Header-->
+
+  <!-- Navbar -->
+  <div class="mask-navbar" id="mask-navbar">
+    <nav class="navbar navbar-dark bg-primary navbar-expand-lg p-3">
+
+
+    <div class="container-fluid">
+        <a class="navbar-brand mt-2 mt-lg-0" href="{% url 'home' %}">
+            <span>Cardiología</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="mx-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-5 mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {% if page == 'home'%} active {% endif %}" aria-current="page" href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if page == 'prediccion'%} active {% endif %}" aria-current="page" href="{% url 'create' %}">Prediccion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if page == 'historial'%} active {% endif %}" aria-current="page" href="{% url 'historial' %}">Historial</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </nav>
+  </div>
+  <!-- Navbar -->
+  
+  <!-- messages -->
+  {% if messages %}
+    <div class="mx-auto mymessages" id="messages">
+        {% for message in messages %}
+        {% if message.tags == 'error' %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        {% else %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {% endif %}
+            <span>{{ message }}</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+  <!-- messages -->  
+
+  <!-- rewrite area-->
+  <div class=" container mt-5">
+    <div class="container edit-area">
+      {% block body %}
+      
+      {% endblock  %}
+    </div>
+  </div>
+  <!-- Write area-->
+
+
+  <!-- Fotter -->
+  {% include './footer.html' %}
+  <!-- Fotter -->
+
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/htmx/htmx.min.js' %}"></script>
+  
+
+    <!-- close messages -->
+    <script src="{% static 'js/close-messages.js' %}"> </script>
+  {% block script %}
+    
+  {% endblock %}
+  
+
+</body>
+
+</html>

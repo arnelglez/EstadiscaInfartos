@@ -1,0 +1,55 @@
+{% extends 'template/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Lista {{ block.super }}
+{% endblock  %}
+
+
+{% block body %}
+    {% if historial %}
+    <div class="container">
+        <form enctype="multipart/form-data" method="post" action="">
+            {% csrf_token %}
+            <div class="mt-4 mx-auto d-flex flex-row-reverse">
+            <button type="submit" class="btn btn-primary">Exportar .xls</button>
+            </div>
+        </form>
+    </div>
+        <div class="row justify-content-center">
+            {% for obj in historial %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mx-3 my-3">
+                    <div class="card">
+                        <div class="card-body">    
+                            <h5 class="card-title">{{ obj.pk }} <strong class="{% if obj.estado_vital == 0 %} text-danger {% else %} text-success {% endif %} ms-4 mayuscula">{{ obj.get_estado_vital_display }}</strong></h5>  
+                            <p class="card-text"><strong>Edad:</strong> {{ obj.edad }} </p>
+                            <p class="card-text"><strong>Peso:</strong> {{ obj.peso }} </p>
+                            <p class="card-text"><strong>Talla:</strong> {{ obj.talla }} </p>
+                            <p class="card-text"><strong>Sexo:</strong> {{ obj.get_sexo_display }} </p>
+                            <p class="card-text"><strong>Presión Arterial:</strong> {{ obj.presion_arterial_sistolica }}/{{ obj.presion_arterial_diastolica }}</p>
+                            <p class="card-text"><strong>Frecuencia cardiaca:</strong> {{ obj.frecuencia_cardiaca }} </p>
+                            <p class="card-text"><strong>Hipertension arterial:</strong> {{ obj.get_hipertension_arterial_display }} </p>
+                            <p class="card-text"><strong>Infarto miocardio agudo:</strong> {{ obj.get_infarto_miocardio_agudo_display }} </p>
+                            <p class="card-text"><strong>Tabaquismo:</strong> {{ obj.get_tabaquismo_display }} </p>
+                            </div>
+                            <a class="btn btn-primary mx-3 mb-3" href="{{ obj.get_absolute_url }}">Ver Detalles</a>
+                        </div>
+                    </div> 
+                {% endfor %}
+                </div>                                                                                          
+                
+        {% else %}
+            <div  class="card bg-menu text-green mb-4 col-8 mx-auto">
+                <div class="row g-0">
+                    <h5 class="card-title text-center mt-3"> Historial</h5>               
+                    <p class="card-text text-center mb-3">Aún no hay registros dentro del historial</p>
+                </div>
+            </div>
+        {% endif %}
+                                        
+
+
+{% endblock %}
+
+

@@ -1,0 +1,45 @@
+{% extends 'template/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Crear {{ block.super }}
+{% endblock  %}
+
+
+{% block body %}
+
+<div class="container my-5 mx-auto" >
+    <form enctype="multipart/form-data" method="post" action="">
+    {% csrf_token %}
+        <div class="row">
+        {% for field in form %}
+
+            <div class="form-group my-2 col-12 col-sm-6 col-md-4 col-lg-3">
+
+                <div class="">
+                    {{field.label | upper}}
+                </div>    
+
+                <div class="">
+                    {{field}}
+                    
+                </div>
+                
+                <div class="mt-2" id="{{ field.name }}-error"></div>
+                                    
+            </div>    
+        {% endfor %}  
+        
+        <div class="mt-4 mx-auto d-flex flex-row-reverse">
+            <a class="btn btn-default" href="{% url 'home' %}">Vorver al Inicio</a>
+            <button type="submit" class="btn btn-primary mx-3">Guardar</button>
+        </div> 
+      </div>
+    </form>
+</div>                                                   
+
+
+{% endblock %}
+
+
